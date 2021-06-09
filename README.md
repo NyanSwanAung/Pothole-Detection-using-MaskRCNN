@@ -12,6 +12,6 @@ This repository includes
 * Inference code on test dataset 
 
 ## Instructions 
-For training purpose, read [train.md](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/blob/main/train/README.md)
+For training purpose, read [this doc](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/blob/main/train)
 
-For inferencing on test dataset, read [inference.md](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/blob/main/inference/README.md)
+For inferencing on test dataset, read [this doc](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/blob/main/inference)
