@@ -20,7 +20,7 @@ from IPython.display import clear_output
 
 os.mkdir('pre-trained-models')
 
-# Rename extracted folder to pretrained-model
+# Move extracted folder to pretrained-model
 !mv mask_rcnn_inception_resnet_v2_1024x1024_coco17_gpu-8 pre-trained-models
 ```
 
