@@ -11,3 +11,5 @@ This repository includes
 * Pre-trained weights and inference graph of Pothole Dataset
 * Inference code on test dataset 
 
+For training purpose, read [train.md](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/blob/main/train.md)
+For inferencing on test dataset, read [inference.md](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/blob/main/inference.md)
