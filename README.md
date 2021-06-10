@@ -93,6 +93,9 @@ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.101
 ```
 
 ## See metrics in Tensorboard 
+
+You can use your own trained checkpoint or you can use my ckpt file in [release page](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/releases) and use it in here.
+
 ```bash
 # Load the TensorBoard notebook extension
 %load_ext tensorboard
