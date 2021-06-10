@@ -4,6 +4,8 @@ In inference.ipynb notebook, you'll need to follow 4 steps in order to inference
 2. Model Preparation 
 3. Detection
 4. Inference
+
+Note: If you want to edit and add new codes to inference.ipynb, I suggest save it as a copy first or else you'll lose your new codes.
  
 ### **1. Prepare prerequisite** 
  
