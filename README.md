@@ -98,6 +98,24 @@ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.101
 %tensorboard --logdir {YOUR_CKPT_PATH}
 ```
 
-![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/tensorboard.png)
+![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/Screen%20Shot%202021-06-10%20at%2010.45.25.png)
 
+## References 
+[Pothole Detectin using MasRCNN (TF version 1.15)](https://github.com/SamdenLepcha/Pothole-Detection-With-Mask-R-CNN)
 
+[Tensorflow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md)
+
+[TF-OD-API Documentation](https://readthedocs.org/projects/tensorflow-object-detection-api-tutorial/)
+
+## Citation
+Use this bibtex to cite this repository:
+```
+@misc{hivevision_maskrcnn_2021,
+  title={Pothole-Detection-using-MaskRCNN-with-Tensorflow-Object-Detection-API},
+  author={Nyan Swan Aung},
+  year={2021},
+  publisher={Github},
+  journal={GitHub repository},
+  howpublished={\url{https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN}},
+}
+```
