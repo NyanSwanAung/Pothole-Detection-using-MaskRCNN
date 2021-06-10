@@ -3,7 +3,7 @@
 
 Training MaskRCNN to detect potholes from roads and streets using Tensorflow Object Detection API (TF version 2)
 
-![Pothole Segmentation Sample](results/detected_output.gif)
+![Pothole Segmentation Sample](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/detected_output.gif)
 
 This repository includes 
 * Results folder which contains the detected image and video of Mask-RCNN 
@@ -97,5 +97,7 @@ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.101
 %load_ext tensorboard
 %tensorboard --logdir {YOUR_CKPT_PATH}
 ```
+
+![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/tensorboard.png)
 
 
