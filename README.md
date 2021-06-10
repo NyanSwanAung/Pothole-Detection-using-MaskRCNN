@@ -42,7 +42,8 @@ Step 3000 per-step time 0.648s
 
 ## COCO Metrics Evaluation 
 
-Evaluating **valid.record** for COCO detection and mask metrics. You can change the metrics type in config file below like this. 
+Evaluating **valid.record** for COCO detection and mask metrics. You can change the *metrics_set* in config file below like this. 
+metrics_set: "coco_detection metrics" or metrics_set: "coco_mask_metrics"
 ```
 eval_config {
   metrics_set: "coco_detection_metrics"
