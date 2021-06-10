@@ -81,7 +81,7 @@ from google.protobuf import text_format
 
 #### **1.4 Pothole Dataset**
 
-The original dataset is from this [link](https://www.kaggle.com/atulyakumar98/pothole-detection-dataset) which are unannotated.
+The original dataset is from this[kaggle dataset](https://www.kaggle.com/atulyakumar98/pothole-detection-dataset) which are unannotated.
 If you want to label your custom data, there are various online tools such as for object detection, you can use [LabelImg](https://github.com/tzutalin/labelImg), an excellent image annotation tool supporting both PascalVOC and Yolo format. For Image Segmentation / Instance Segmentation there are multiple great annotations tools available. Including, [VGG Image Annotation Tool](http://www.robots.ox.ac.uk/~vgg/software/via/), [labelme](https://github.com/wkentaro/labelme), and [PixelAnnotationTool](https://github.com/abreheret/PixelAnnotationTool). 
 
 Once you've annotated, you'll probably get different dataset formats (VOC XML or COCO JSON). Make sure you convert these formats to .tfrecord format if you're using TF-OD-API. There are many gists for this dataset format conversion.
