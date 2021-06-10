@@ -105,7 +105,7 @@ You can use your own trained checkpoint or you can use my ckpt file in [release 
 ![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/tensorboard.png)
 
 ## References 
-[Pothole Detectin using MasRCNN (TF version 1.15)](https://github.com/SamdenLepcha/Pothole-Detection-With-Mask-R-CNN)
+[Pothole Detection using MasRCNN (TF version 1.15)](https://github.com/SamdenLepcha/Pothole-Detection-With-Mask-R-CNN)
 
 [Tensorflow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md)
 
