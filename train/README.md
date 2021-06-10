@@ -12,7 +12,7 @@ In train.ipynb notebook, you'll need to follow 5 steps in order to train the mod
 
 Download Mask-RCNN model from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md), extract the zip file and move in **pre-trained-models** folder
 
-```
+```python
 from IPython.display import clear_output
 
 # Download using wget
@@ -128,7 +128,7 @@ workspace
 
 Run below code to create this kind of structure
 
-```bash
+```python
 %cd ~/../content
 os.mkdir('workspace')
 os.mkdir('workspace/models')
