@@ -6,6 +6,8 @@ In train.ipynb notebook, you'll need to follow 5 steps in order to train the mod
 4. Training and Evaluation 
 5. Export model to inference graph 
 
+Note: If you want to edit and add new codes to train.ipynb, I suggest save it as a copy first or else you'll lose your new codes.
+
 ### 1. Prepare prerequisites
 
 #### **1.1 Download pre-trained model and config file**
