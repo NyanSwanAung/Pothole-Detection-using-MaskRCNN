@@ -17,6 +17,12 @@ For training purpose, read [this doc](https://github.com/NyanSwanAung/Pothole-De
 
 For inferencing on test dataset, read [this doc](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/blob/main/inference)
 
+## Dataset
+For custom dataset, we're going to use Pothole Dataset from [kaggle](https://www.kaggle.com/atulyakumar98/pothole-detection-dataset). We're going to use 400 images for train and 80 images for validation.
+
+![Sample1.jpg](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/assets/sample1.jpg)
+![Sample2.jpg](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/assets/sample2.jpg)
+
 ## Model 
 
 We're going to use Mask-RCNN which is pre-trained on COCO 2017 dataset from the [Tensorflow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md):
