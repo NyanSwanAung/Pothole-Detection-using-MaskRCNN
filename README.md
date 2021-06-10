@@ -102,7 +102,7 @@ You can use your own trained checkpoint or you can use my ckpt file in [release 
 %tensorboard --logdir {YOUR_CKPT_PATH}
 ```
 
-![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/Screen%20Shot%202021-06-10%20at%2010.45.25.png)
+![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/tensorboard.png)
 
 ## References 
 [Pothole Detectin using MasRCNN (TF version 1.15)](https://github.com/SamdenLepcha/Pothole-Detection-With-Mask-R-CNN)
