@@ -42,7 +42,8 @@ Step 3000 per-step time 0.648s
 
 ## COCO Metrics Evaluation 
 
-Evaluating **valid.record** for COCO detection and mask metrics. You can change the metrics type in config file below like this. 
+Evaluating **valid.record** for COCO detection and mask metrics. You can change the *metrics_set* in config file below like this. 
+metrics_set: "coco_detection metrics" or metrics_set: "coco_mask_metrics"
 ```
 eval_config {
   metrics_set: "coco_detection_metrics"
@@ -92,12 +93,33 @@ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.101
 ```
 
 ## See metrics in Tensorboard 
+
+You can use your own trained checkpoint or you can use my ckpt file in [release page](https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/releases) and use it in here.
+
 ```bash
 # Load the TensorBoard notebook extension
 %load_ext tensorboard
 %tensorboard --logdir {YOUR_CKPT_PATH}
 ```
 
-![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/tensorboard.png)
+![tensorboard.png](https://raw.githubusercontent.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN/main/results/Screen%20Shot%202021-06-10%20at%2010.45.25.png)
 
+## References 
+[Pothole Detectin using MasRCNN (TF version 1.15)](https://github.com/SamdenLepcha/Pothole-Detection-With-Mask-R-CNN)
 
+[Tensorflow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md)
+
+[TF-OD-API Documentation](https://readthedocs.org/projects/tensorflow-object-detection-api-tutorial/)
+
+## Citation
+Use this bibtex to cite this repository:
+```
+@misc{hivevision_maskrcnn_2021,
+  title={Pothole-Detection-using-MaskRCNN-with-Tensorflow-Object-Detection-API},
+  author={Nyan Swan Aung},
+  year={2021},
+  publisher={Github},
+  journal={GitHub repository},
+  howpublished={\url{https://github.com/NyanSwanAung/Pothole-Detection-using-MaskRCNN}},
+}
+```

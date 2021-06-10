@@ -3,12 +3,15 @@ In train.ipynb notebook, you'll need to follow 5 steps in order to train the mod
 1. Prepare prerequisite
 2. Setup Paths
 3. Config for fine-tuning pothole dataset
-4. Training 
+4. Training and Evaluation 
 5. Export model to inference graph 
 
 ### 1. Prepare prerequisites
 
 #### **1.1 Download pre-trained model and config file**
+
+Download Mask-RCNN model from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md), extract the zip file and move in **pre-trained-models** folder
+
 ```
 from IPython.display import clear_output
 
@@ -23,8 +26,6 @@ os.mkdir('pre-trained-models')
 # Move extracted folder to pretrained-model
 !mv mask_rcnn_inception_resnet_v2_1024x1024_coco17_gpu-8 pre-trained-models
 ```
-
-Download Mask-RCNN model from [tensorflow model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md), extract the zip file and move in **pre-trained-models** folder
 
 #### **1.2 Installation**
 
@@ -80,7 +81,7 @@ from google.protobuf import text_format
 
 #### **1.4 Pothole Dataset**
 
-The original dataset is from this [link](https://www.kaggle.com/atulyakumar98/pothole-detection-dataset) which are unannotated.
+The original dataset is from this[kaggle dataset](https://www.kaggle.com/atulyakumar98/pothole-detection-dataset) which are unannotated.
 If you want to label your custom data, there are various online tools such as for object detection, you can use [LabelImg](https://github.com/tzutalin/labelImg), an excellent image annotation tool supporting both PascalVOC and Yolo format. For Image Segmentation / Instance Segmentation there are multiple great annotations tools available. Including, [VGG Image Annotation Tool](http://www.robots.ox.ac.uk/~vgg/software/via/), [labelme](https://github.com/wkentaro/labelme), and [PixelAnnotationTool](https://github.com/abreheret/PixelAnnotationTool). 
 
 Once you've annotated, you'll probably get different dataset formats (VOC XML or COCO JSON). Make sure you convert these formats to .tfrecord format if you're using TF-OD-API. There are many gists for this dataset format conversion.
@@ -163,10 +164,19 @@ CHECKPOINT_PATH = MODEL_PATH+'/' + CUSTOM_MODEL_NAME + '/'
 
 ### 3. Update config file for Pothole Dataset
 
-Sometimes the default config file which comes with pre-trained-model, contains typos. So that, we're going to download maskrcnn [config file](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) from official repo which is the updatest. 
+Sometimes the default config file which comes with pre-trained-model, contains typos. So that, we're going to download maskrcnn [config file](https://github.com/tensorflow/models/blob/master/research/object_detection/configs/tf2/mask_rcnn_inception_resnet_v2_1024x1024_coco17_gpu-8.config) from official repo which is the updatest. 
+
+```bash
+%cd /content/workspace/models/my_maskrcnn
+!wget https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/configs/tf2/mask_rcnn_inception_resnet_v2_1024x1024_coco17_gpu-8.config
+
+# Rename to pipeline.config
+!mv mask_rcnn_inception_resnet_v2_1024x1024_coco17_gpu-8.config pipeline.config
+%cd ~/../content
+```
 
 Once we have the updated config, you'll need to load and read config file to rewrite custom configs for custom dataset.
-```
+```python
 config = config_util.get_configs_from_pipeline_file(CONFIG_PATH)
 pipeline_config = pipeline_pb2.TrainEvalPipelineConfig()
 with tf.io.gfile.GFile(CONFIG_PATH, "r") as f:
@@ -174,7 +184,7 @@ with tf.io.gfile.GFile(CONFIG_PATH, "r") as f:
   text_format.Merge(proto_str, pipeline_config)
 ```
 
-You can manually rewrite config by opening the file in colab or jupyter. Nonetheless, you can also use below code to customize configs.
+You can manually rewrite config by opening the file in colab or jupyter. Moreoever, you can also use below code to customize configs.
 
 ```python
 # Rewriting 
@@ -209,9 +219,9 @@ with tf.io.gfile.GFile(CONFIG_PATH, "wb") as f:
     f.write(config_text)  
 ```
 
-### 4. Train Model
+### 4. Train and Evaluate Model
 
-To train the model, you'll need to run model_main_tf2.py from official github repo with required arguments.
+**To train the model**, you'll need to run *models/research/object_detection/model_main_tf2.py* from official github repo with required arguments.
 If you want to see supported arguments, run below code.
 
 ```bash
@@ -240,6 +250,30 @@ INFO:tensorflow:{'Loss/BoxClassifierLoss/classification_loss': 0.018416926,
  'Loss/regularization_loss': 0.0,
  'Loss/total_loss': 0.763829,
  'learning_rate': 0.00016000001}
+```
+**To evaluate your model** with COCO MAP and COCO MAR, you'll need to run the same training code file but with different arguments. 
+```python
+# Run evaluation script 
+!python models/research/object_detection/model_main_tf2.py \
+  --model_dir={CHECKPOINT_PATH} \
+  --pipeline_config_path=workspace/models/{CUSTOM_MODEL_NAME}/pipeline.config \
+  --checkpoint_dir={CHECKPOINT_PATH}
+```
+If you start seeing these similar outputs, your model is good to go 🚀
+```bash
+Accumulating evaluation results...
+DONE (t=0.06s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.097
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.268
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.053
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.020
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.096
+```
+**To see your loss metrics in tensorboard**, run below cell
+```
+# Load the TensorBoard notebook extension
+%load_ext tensorboard
+%tensorboard --logdir {CHECKPOINT_PATH}
 ```
 
 ### 4. Export Inference Graph
